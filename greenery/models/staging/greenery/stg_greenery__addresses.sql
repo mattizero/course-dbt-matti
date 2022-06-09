@@ -17,7 +17,7 @@ renamed_recast as (
       address_id as address_guid,
 
       -- strings
-      address,
+      address as delivery_address, -- is this billing or delivery address?
       zipcode::TEXT, -- changing this to string to prepare for international deliveries
       state, -- Is this an optional field, and/or is this field available outside USA?
       country
