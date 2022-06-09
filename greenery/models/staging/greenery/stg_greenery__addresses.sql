@@ -18,7 +18,7 @@ renamed_recast as (
 
       -- strings
       address,
-      zipcode::TEXT -- changing this to string to prepare for international deliveries
+      zipcode::TEXT, -- changing this to string to prepare for international deliveries
       state, -- Is this an optional field, and/or is this field available outside USA?
       country
 
