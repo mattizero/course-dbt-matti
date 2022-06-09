@@ -15,7 +15,7 @@ renamed_recast as (
   select 
 
     -- ids
-      promo_id as promo_guid,
+      promo_id,
 
       --strings
       discount as discount_type,
