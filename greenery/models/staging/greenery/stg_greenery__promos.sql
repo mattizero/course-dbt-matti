@@ -18,7 +18,7 @@ renamed_recast as (
       promo_id as promo_guid,
 
       --strings
-      discount,
+      discount as discount_type,
       status
 
   from source_promos

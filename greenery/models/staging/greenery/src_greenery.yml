@@ -18,31 +18,31 @@ sources:
     tables:
       - name: addresses 
         description: >
-          Contains delivery location information associated with greenery's users (GDPR)
+          Fact table: location (delivery) information associated with greenery's users (GDPR)
 
       - name: events 
         loaded_at_field: created_at
         description: >
-          Contains information regarding greenery's users site events
+          Fact table: greenery's users site sessions and events
 
       - name: orders 
         loaded_at_field: created_at
         description: >
-          Contains information regarding orders, deliveries and shipping
+          Fact table: greenery's orders, deliveries and shipping
 
       - name: order_items 
         description: >
-          Contains list of items per order 
+          Fact table: items per order (including quantity)
 
       - name: products 
         description: >
-          Contains information regarding greenery's products
+          Dimension table: greenery's products and inventory
 
       - name: promos 
         description: >
-          Contains information regarding greenery's promotions
+          Dimension table: greenery's promotions
 
       - name: users 
         loaded_at_field: created_at
         description: >
-          Contains demographic information and contact details for greenery's users (GDPR)
+          Dimension table: demographic information and contact details for greenery's users (GDPR)
