@@ -18,7 +18,7 @@ renamed_recast as (
     --ids
       order_id as order_guid,
       user_id as user_guid,
-      promo_id as promo_guid,
+      promo_id,
       address_id as address_guid, 
       tracking_id as tracking_guid,
 
