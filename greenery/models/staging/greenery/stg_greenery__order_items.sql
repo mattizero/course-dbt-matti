@@ -19,6 +19,7 @@ renamed_recast as (
 
       -- numerical
       quantity as product_qty
+      
   from source_order_items
 )
 

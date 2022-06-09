@@ -8,7 +8,8 @@
 with
 source_orders as (
     select * from {{ source('src_greenery','orders') }}
-),
+)
+,
 
 renamed_recast as (
 
