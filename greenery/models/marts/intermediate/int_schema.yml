@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  
+  - name: int_events_pivoted_to_product
+    description: Intermediate table pivoting and aggregating event data into product grain
+
+  - name: int_events_pivoted_to_session
+    description: Intermediate table pivoting and aggregating event data into session grain
