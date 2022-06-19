@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  
+  - name: fct_product_events
+    description: Aggregated event information surrounding greenery's product range
+    columns:
+      - name: product_guid
+        tests:
+        - not_null
+        - unique
+      - name: product_name
+        tests:
+        - not_null
+        - unique
+        
+  - name: fct_product_orders
+    description: Aggregated order information surrounding greenery's product range
+    columns:
+      - name: product_guid
+        tests:
+        - not_null
+        - unique
+      - name: product_name
+        tests:
+        - not_null
+        - unique

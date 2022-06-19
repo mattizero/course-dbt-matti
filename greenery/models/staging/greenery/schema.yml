@@ -10,7 +10,7 @@ models:
   - name: stg_greenery__orders
     description: Greenery's orders, deliveries and shipping
     columns:
-      - name: order_id
+      - name: order_guid
         tests:
         - not_null
         - unique
@@ -27,7 +27,7 @@ models:
   - name: stg_greenery__users
     description: Demographic information and contact details for greenery's users (GDPR)
     columns:
-      - name: user_id
+      - name: user_guid
         tests:
         - not_null
         - unique

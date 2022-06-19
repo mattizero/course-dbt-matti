@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  
+  - name: fct_user_sessions
+    description: Aggregated statistics on users' site habits
+    columns:
+      - name: user_guid
+        tests:
+        - not_null
+        - unique
+
+  - name: fct_user_orders
+    description: Aggregated information about greenery's users' order habits and statistics
+    columns:
+      - name: user_guid
+        tests:
+        - not_null
+        - unique
+
+      - name: nb_orders
+        tests:
+        - not_null #this should be coalesced!
+      
+      - name: avg_revenue
+        tests:
+        - positive_values

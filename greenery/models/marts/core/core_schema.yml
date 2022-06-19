@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  
+  - name: dim_products
+    description: Source of Truth for greenery's products
+    columns:
+      - name: product_guid
+        tests:
+        - not_null
+        - unique
+      - name: product_name
+        tests:
+        - not_null
+        - unique
+      - name: price_usd
+        tests:
+          - positive_values
+          - not_null
+      - name: inventory_qty
+        tests:
+          - positive_values
+
+        
+  - name: dim_users
+    description: Source of Truth for greenery's users
+    columns:
+      - name: user_guid
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        tests: 
+          - alphabetical_check
+      - name: zipcode
+        tests:
+          - numerical_check
+
+  - name: fct_orders
+    description: Source of Truth for greenery's orders, deliveries and shipping
+    columns:
+      - name: order_guid
+        tests:
+        - not_null
+        - unique
+      - name: delivery_status
+        tests:
+          - accepted_values:
+              values: ['early', 'on time', 'late']
+
+  - name: fct_sessions
+    description: Aggregated info regarding about greenery's users site sessions
+    columns:
+      - name: session_guid
+        tests:
+        - not_null
+        - unique      
+      - name: user_guid
+        tests:
+        - not_null
+      - name: order_placed
+        tests:
+          - accepted_values:
+              values: [true,false]
+              quote: false
