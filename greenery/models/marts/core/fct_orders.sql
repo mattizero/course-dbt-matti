@@ -28,14 +28,7 @@ with fct_orders as (
         ,o.shipping_cost_usd
         ,o.order_total_usd
         
-        ,CASE 
-            when estimated_delivery_at_utc > delivered_at_utc
-                then 'early'
-            when estimated_delivery_at_utc = delivered_at_utc
-                then 'on time'
-            when estimated_delivery_at_utc < delivered_at_utc
-                then 'late'
-            end as delivery_status
+        ,{{ delivery_status('estimated_delivery_at_utc', 'delivered_at_utc')}} as delivery_status
             
         ,age(o.delivered_at_utc,o.created_at_utc) as delivery_time
 

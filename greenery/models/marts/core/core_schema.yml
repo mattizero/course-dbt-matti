@@ -4,6 +4,9 @@ models:
   
   - name: dim_products
     description: Source of Truth for greenery's products
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('stg_greenery__products')
     columns:
       - name: product_guid
         tests:
@@ -21,9 +24,12 @@ models:
         tests:
           - positive_values
 
-        
+
   - name: dim_users
     description: Source of Truth for greenery's users
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('stg_greenery__users')
     columns:
       - name: user_guid
         tests:
@@ -46,7 +52,7 @@ models:
       - name: delivery_status
         tests:
           - accepted_values:
-              values: ['early', 'on time', 'late']
+              values: ['early', 'on_time', 'late']
 
   - name: fct_sessions
     description: Aggregated info regarding about greenery's users site sessions
