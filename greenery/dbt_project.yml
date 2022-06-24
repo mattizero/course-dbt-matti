@@ -36,8 +36,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
-    +post-hook:
-      - "grant select on {{ this }} to role reporting"
+    # +post-hook:
+    #   - "grant select on {{ this }} to role reporting"
 
 # on-run-end:
 #   - "grant usage on {{ schema }} to role reporting"

@@ -7,6 +7,7 @@
 {%- set delivery_statuses = dbt_utils.get_column_values(
     table=ref('fct_orders'),
     column='delivery_status',
+    where='delivery_status is not null'
 ) -%}
 
 with delivery_performance as (
@@ -20,6 +21,7 @@ with delivery_performance as (
         {%- if not loop.last %},{% endif -%}
         {% endfor %}
     from {{ ref('fct_orders')}}
+    where shipping_service is not null
     group by 1
 )
 

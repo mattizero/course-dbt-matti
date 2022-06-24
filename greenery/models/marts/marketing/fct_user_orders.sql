@@ -7,11 +7,13 @@
 
 {%- set shipping_services = dbt_utils.get_column_values(
     table=ref('fct_orders'),
-    column='shipping_service'
+    column='shipping_service',
+    where='shipping_service is not null'
 ) -%}
 {%- set delivery_statuses = dbt_utils.get_column_values(
     table=ref('fct_orders'),
-    column='delivery_status'
+    column='delivery_status',
+    where='delivery_status is not null'
 ) -%}
 
 
