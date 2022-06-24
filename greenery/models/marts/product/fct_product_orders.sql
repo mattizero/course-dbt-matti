@@ -33,6 +33,7 @@ aggregated_and_pivoted_to_product as (
       from orders_and_products_joined
   group by 1,2
   order by 2
+
 )
 
 select * from aggregated_and_pivoted_to_product
