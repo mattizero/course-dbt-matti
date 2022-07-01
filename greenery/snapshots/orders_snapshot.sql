@@ -1,4 +1,4 @@
-{% snapshot inventory_snapshot %}
+{% snapshot order_snapshot %}
 
   {{
     config(
