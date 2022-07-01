@@ -16,6 +16,9 @@ with aggregated_sessions as (
         else FALSE
       end as order_placed
       ,es.nb_events
+      ,es.nb_page_view
+      ,es.nb_add_to_cart
+      ,es.nb_checkout
       ,es.nb_products_viewed
       ,es.session_start
       ,date_trunc('day', es.session_start) as session_day
@@ -23,7 +26,6 @@ with aggregated_sessions as (
 
 from {{ ref('int_events_pivoted_to_sessions')}} es
 left join {{ ref('dim_users')}} u on u.user_guid = es.user_guid
-group by 1,2,3,4,5,6,7,8,9,10
 )
 
 select * from aggregated_sessions
